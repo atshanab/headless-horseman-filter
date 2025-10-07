@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Headless Horseman Filter</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
+</head>
+<body>
+  <div id="ui">
+    <div class="bar">
+      <button id="startBtn">Start</button>
+      <button id="captureBtn">🎭 Capture Head</button>
+      <button id="photoBtn">📸 Take Photo</button>
+      <label class="flip"><input type="checkbox" id="flipCam"> Rear camera</label>
+      <div class="tweaks">
+        <label>Head Scale <input id="headScale" type="range" min="60" max="200" value="120"></label>
+        <label>Head X <input id="headX" type="range" min="-400" max="400" value="0"></label>
+        <label>Head Y <input id="headY" type="range" min="-300" max="300" value="0"></label>
+        <label>Hide Live Head <input id="hideHead" type="checkbox" checked></label>
+      </div>
+    </div>
+    <div id="hint">Tip: tap <b>Capture Head</b> when your face is centered, then adjust X/Y/Scale so it sits in the rider's hand.</div>
+  </div>
+
+  <div id="stage">
+    <video id="video" playsinline></video>
+    <canvas id="canvas"></canvas>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
